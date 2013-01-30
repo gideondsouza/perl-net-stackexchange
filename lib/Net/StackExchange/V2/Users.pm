@@ -4,7 +4,7 @@ use 5.006;
 use strict;
 use warnings FATAL => 'all';
 use Sub::Name qw(subname);
-use Net::StackExchange::V2::Common qw(query no_params one_param);
+use Net::StackExchange::V2::Common qw(query no_params one_param two_params);
 
 our $VERSION = '0.01';
 
@@ -29,6 +29,10 @@ sub new {
 	   "Net::StackExchange::V2::Users::users_comments",
 	   one_param("users", "comments"),
 	);
+	*users_comments_toid = subname(
+	   "Net::StackExchange::V2::Users::users_comments_toid",
+	   two_params("users", "comments"),
+	);
 	*users_favorites = subname(
 	   "Net::StackExchange::V2::Users::users_favorites",
 	   one_param("users", "favorites"),
@@ -39,15 +43,15 @@ sub new {
 	);
 	*users_merges = subname(
 	   "Net::StackExchange::V2::Users::users_merges",
-	   one_param("users", "merges"),
+	   one_param("users", "merges", { no_site => 1}),
 	);
 	*users_notifications = subname(
-	   "Net::StackExchange::V2::Users::users_merges",
-	   one_param("users", "notifcations"),
+	   "Net::StackExchange::V2::Users::users_notifications",
+	   one_param("users", "notifications"),
 	);
 	*users_notifications_unread = subname(
 	   "Net::StackExchange::V2::Users::users_notifications_unread",
-	   one_param("users", "notifcations/unread"),
+	   one_param("users", "notifications/unread"),
 	);
 	*users_privileges = subname(
 	   "Net::StackExchange::V2::Users::users_privileges",
@@ -93,18 +97,16 @@ sub new {
 	   "Net::StackExchange::V2::Users::users_tags",
 	   one_param("users", "tags"),
 	);
-	*users_tags = subname(
-	   "Net::StackExchange::V2::Users::users_tags",
-	   one_param("users", "tags"),
-	);
-	#this needs to be redefined.
+
 	*users_tags_top_answers = subname(
 	   "Net::StackExchange::V2::Users::users_tags_top_answers",
-	   two_param("users", "top-answers"),
+		#refined quite nicely. two params in this case takes three parts 
+		#to the url
+	   two_params("users", "tags", "top-answers"),
 	);
 	*users_tags_top_questions = subname(
 	   "Net::StackExchange::V2::Users::users_tags_top_answers",
-	   two_param("users", "top-questions"),
+	   two_params("users", "tags","top-questions"),
 	);
 	#-------------------
 	*users_timeline = subname(
@@ -125,15 +127,23 @@ sub new {
 	);
 	*users_moderators = subname(
 	   "Net::StackExchange::V2::Users::users_write_permissions",
-	   no_params("users", "moderators"),
+	   no_params("users/moderators"),
 	);    
 	*users_moderators_elected = subname(
 	   "Net::StackExchange::V2::Users::users_moderators_elected",
-	   no_params("users", "moderators/elected"),
+	   no_params("users/moderators/elected"),
 	);    
 	*users_associated = subname(
 	   "Net::StackExchange::V2::Users::users_associated",
-	   no_params("users", "associated"),
+	   one_param("users","associated", {no_site => 1}),
+	);
+	*users_inbox = subname(
+	   "Net::StackExchange::V2::Users::users_inbox",
+	   one_param("users", "inbox"),
+	);
+	*users_inbox_unread = subname(
+	   "Net::StackExchange::V2::Users::users_inbox_unread",
+	   one_param("users", "inbox/unread"),
 	);
 	return $self;
 }

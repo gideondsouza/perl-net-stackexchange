@@ -4,7 +4,7 @@ use 5.006;
 use strict;
 use warnings FATAL => 'all';
 use Sub::Name qw(subname);
-use Net::StackExchange::V2::Common qw(query no_params one_param two_param);
+use Net::StackExchange::V2::Common qw(query no_params one_param two_params);
 
 our $VERSION = '0.01';
 
@@ -47,11 +47,11 @@ sub new {
 	);
 	*tags_top_answerers = subname(
 	   "Net::StackExchange::V2::Tags::tags_top_answerers",
-	   two_param("tags", "top-answerers"),
+	   two_params("tags", "top-answerers"),
 	);
 	*tags_top_askers = subname(
 	   "Net::StackExchange::V2::Tags::tags_top_askers",
-	   two_param("tags", "top-askers"),
+	   two_params("tags", "top-askers"),
 	);
 	*tags_wikis = subname(
 	   "Net::StackExchange::V2::Tags::tags_wikis",

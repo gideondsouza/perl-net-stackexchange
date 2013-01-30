@@ -15,7 +15,7 @@ sub new {
 
 	*privileges = subname(
 	   "Net::StackExchange::V2::Privileges::privileges",
-	   no_params("comments"),
+	   no_params("privileges"),
 	);
 	
     return $self;
