@@ -21,7 +21,14 @@ sub new {
 	   "Net::StackExchange::V2::Comments::comments",
 	   one_param("comments"),
 	);
-	
+	*comments_delete = subname(
+	   "Net::StackExchange::V2::Comments::comments_delete",
+	   one_param("comments", "delete", {post => 1}),
+	);
+	*comments_edit = subname(
+	   "Net::StackExchange::V2::Comments::comments_edit",
+	   one_param("comments", "edit", {post => 1}),
+	);
     return $self;
 }
 1; #END of Net::StackExchange::V2::Comments

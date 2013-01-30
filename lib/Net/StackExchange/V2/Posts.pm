@@ -25,6 +25,11 @@ sub new {
 	   "Net::StackExchange::V2::Posts::posts_comments",
 	   one_param("posts", "comments"),
 	);
+	*posts_comments_add = subname(
+	   "Net::StackExchange::V2::Posts::posts_comments_add",
+	   one_param("posts", "comments/add", {post => 1}),
+	);
+	
 	*posts_revisions = subname(
 	   "Net::StackExchange::V2::Posts::posts_revisions",
 	   one_param("posts", "revisions"),

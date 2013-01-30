@@ -13,9 +13,13 @@ sub new {
     my $self = $params;
     bless $self, $class;
 
-	*comments_all = subname(
-	   "Net::StackExchange::V2::Notifications::",
-	   no_params("comments"),
+	*notifcations = subname(
+	   "Net::StackExchange::V2::Notifcations::notifcations",
+	   no_params("notifications", {no_site => 1}),
+	);
+	*notifcations_unread = subname(
+	   "Net::StackExchange::V2::Notifications::notifcations_unread",
+	   no_params("notifications/unread",{no_site => 1}),
 	);
 	
     return $self;

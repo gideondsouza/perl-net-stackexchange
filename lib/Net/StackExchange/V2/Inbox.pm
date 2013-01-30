@@ -13,11 +13,15 @@ sub new {
     my $self = $params;
     bless $self, $class;
 
-	*comments_all = subname(
-	   "Net::StackExchange::V2::Inbox::",
-	   no_params("comments"),
+	*inbox = subname(
+	   "Net::StackExchange::V2::Inbox::inbox",
+	   no_params("inbox", {no_site => 1}),
 	);
-	
+	*inbox_unread = subname(
+	   "Net::StackExchange::V2::Inbox::inbox_unread",
+	   no_params("inbox/unread",{no_site => 1}),
+	);
+		
     return $self;
 }
 1; #END of Net::StackExchange::V2::Inbox

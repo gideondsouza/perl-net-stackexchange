@@ -13,9 +13,13 @@ sub new {
     my $self = $params;
     bless $self, $class;
 
-	*comments_all = subname(
-	   "Net::StackExchange::V2::Filters::",
-	   no_params("comments"),
+	*filters_create = subname(
+	   "Net::StackExchange::V2::Filters::filters_create",
+	   no_params("filters/create", {no_site => 1}),
+	);
+	*filters = subname(
+	   "Net::StackExchange::V2::Filters::filters",
+	   one_param("filters", "", {no_site => 1}),
 	);
 	
     return $self;

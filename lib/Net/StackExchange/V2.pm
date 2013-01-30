@@ -19,7 +19,9 @@ use Net::StackExchange::V2::Sites;
 use Net::StackExchange::V2::SuggestedEdits;
 use Net::StackExchange::V2::Tags;
 use Net::StackExchange::V2::Users;
-
+use Net::StackExchange::V2::Filters;
+use Net::StackExchange::V2::Inbox;
+use Net::StackExchange::V2::Notifications;
 
 our $VERSION = '0.01';
 
@@ -94,6 +96,18 @@ sub users {
 sub events {
 	my $self = shift;
 	return Net::StackExchange::V2::Events->new($self);
+}
+sub filters {
+	my $self = shift;
+	return Net::StackExchange::V2::Filters->new($self);
+}
+sub inbox {
+	my $self = shift;
+	return Net::StackExchange::V2::Inbox->new($self);
+}
+sub notifications {
+	my $self = shift;
+	return Net::StackExchange::V2::Notifications->new($self);
 }
 1; #End of StackExchange::V2
 __END__

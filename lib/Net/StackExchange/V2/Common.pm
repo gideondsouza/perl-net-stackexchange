@@ -7,7 +7,7 @@ use JSON qw(decode_json);
 use Carp;
 use LWP::UserAgent;
 use warnings FATAL => 'all';
-use constant BASE_URL => "https://api.stackexchange.com/";
+use constant BASE_URL => "https://api.stackexchange.com/2.1/";
 our @ISA = qw(Exporter);
 our @EXPORT = qw(query no_params one_param two_params);
 
@@ -38,15 +38,34 @@ sub query {
 	# 	croak $response->status_line;
 	# }
 }
+sub query_post {
+	my $queryStrHash = pop @_;
+	print Dumper(%$queryStrHash);
+	my $url = join("/",@_);
+	my $finalUrl = BASE_URL.$url;
+	print $finalUrl;
+	my $ua = LWP::UserAgent->new;
+	#apprently the second param in the post has to be a hash inside an array
+	my $response = $ua->post($finalUrl, [%$queryStrHash]);
+	return	decode_json($response->decoded_content);
+}
 sub no_params {
 	my $param = shift;
+	my $config = shift;
 	return sub {
 		my $self = shift;
 		my $queryStr = pop @_;
-		if(not $self->{site} eq '') {
-			 $queryStr->{site} = $self->{site};
+		if(defined($queryStr)) {
+		# copy current method keys and vals
+			while(my($key,$val) = each(%$queryStr))
+			{
+				$self->{$key} = $val;
+			}
 		}
-		return query($param, $queryStr);
+		if (defined($config) and $config->{no_site} == 1) {
+			$self->{site} = '';
+		}
+		return query($param, $self);
 	}
 }
 
@@ -74,8 +93,19 @@ sub one_param {
 			$ids_str = $ids."";
 		}
 #		print Dumper($q);
-		if (defined($config) and $config->{no_site} == 1) {
-			$self->{site} = '';
+		if (defined($config)) { 
+			if(exists $config->{no_site} and $config->{no_site} == 1) {
+				$self->{site} = '';
+			}
+			if(exists $config->{post} and $config->{post} == 1) {
+				#this is a little icky, but should do for now.
+				print Dumper($self);
+				if (not defined($param2)) {
+					return query_post($param1, $ids_str , $self);
+				} else {
+					return query_post($param1, $ids_str, $param2, $self);
+				}
+			}
 		}
 		if (not defined($param2)) {
 			return query($param1, $ids_str , $self);

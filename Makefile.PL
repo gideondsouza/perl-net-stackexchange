@@ -18,9 +18,14 @@ WriteMakefile(
         'Test::More' => 0,
     },
     PREREQ_PM => {
-        #'ABC'              => 1.6,
-        #'Foo::Bar::Module' => 5.0401,
+        'LWP::UserAgent'      => 6.04,
+		'JSON'  => 2.53
     },
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean => { FILES => 'Net-StackExchange-*' },
+	META_MERGE        => {
+	     resources => {
+	         repository  =>  'https://github.com/gideondsouza/perl-net-stackexchange/',
+	     },
+	},
 );
