@@ -4,7 +4,7 @@ use strict;
 use warnings FATAL => 'all';
 use Test::More;
 
-plan tests => 21;
+plan tests => 25;
 
 sub not_in_file_ok {
     my ($filename, %regex) = @_;
@@ -50,25 +50,29 @@ TODO: {
     "placeholder date/time"       => qr(Date/time)
   );
 
-  module_boilerplate_ok('lib/Net/StackExchange.pm');
-  module_boilerplate_ok('lib/Net/StackExchange/V2.pm');
-  module_boilerplate_ok('lib/Net/StackExchange/V2/Common.pm');
-  module_boilerplate_ok('lib/Net/StackExchange/V2/Sites.pm');
-  module_boilerplate_ok('lib/Net/StackExchange/V2/Errors.pm');
-  module_boilerplate_ok('lib/Net/StackExchange/V2/Applications.pm');
-  module_boilerplate_ok('lib/Net/StackExchange/V2/AccessTokens.pm');
-  module_boilerplate_ok('lib/Net/StackExchange/V2/Users.pm');
-  module_boilerplate_ok('lib/Net/StackExchange/V2/Tags.pm');
-  module_boilerplate_ok('lib/Net/StackExchange/V2/SuggestedEdits.pm');
-  module_boilerplate_ok('lib/Net/StackExchange/V2/Search.pm');
-  module_boilerplate_ok('lib/Net/StackExchange/V2/Revisions.pm');
-  module_boilerplate_ok('lib/Net/StackExchange/V2/Questions.pm');
-  module_boilerplate_ok('lib/Net/StackExchange/V2/Privileges.pm');
-  module_boilerplate_ok('lib/Net/StackExchange/V2/Posts.pm');
-  module_boilerplate_ok('lib/Net/StackExchange/V2/Info.pm');
-  module_boilerplate_ok('lib/Net/StackExchange/V2/Comments.pm');
-  module_boilerplate_ok('lib/Net/StackExchange/V2/Badges.pm');
-  module_boilerplate_ok('lib/Net/StackExchange/V2/Answers.pm');
+  module_boilerplate_ok('lib/Net/StackExchange2.pm');
+  module_boilerplate_ok('lib/Net/StackExchange2/V2.pm');
+  module_boilerplate_ok('lib/Net/StackExchange2/V2/Users.pm');
+  module_boilerplate_ok('lib/Net/StackExchange2/V2/AccessTokens.pm');
+  module_boilerplate_ok('lib/Net/StackExchange2/V2/Answers.pm');
+  module_boilerplate_ok('lib/Net/StackExchange2/V2/Applications.pm');
+  module_boilerplate_ok('lib/Net/StackExchange2/V2/Badges.pm');
+  module_boilerplate_ok('lib/Net/StackExchange2/V2/Comments.pm');
+  module_boilerplate_ok('lib/Net/StackExchange2/V2/Common.pm');
+  module_boilerplate_ok('lib/Net/StackExchange2/V2/Errors.pm');
+  module_boilerplate_ok('lib/Net/StackExchange2/V2/Events.pm');
+  module_boilerplate_ok('lib/Net/StackExchange2/V2/Filters.pm');
+  module_boilerplate_ok('lib/Net/StackExchange2/V2/Inbox.pm');
+  module_boilerplate_ok('lib/Net/StackExchange2/V2/Info.pm');
+  module_boilerplate_ok('lib/Net/StackExchange2/V2/Notifications.pm');
+  module_boilerplate_ok('lib/Net/StackExchange2/V2/Posts.pm');
+  module_boilerplate_ok('lib/Net/StackExchange2/V2/Privileges.pm');
+  module_boilerplate_ok('lib/Net/StackExchange2/V2/Questions.pm');
+  module_boilerplate_ok('lib/Net/StackExchange2/V2/Revisions.pm');
+  module_boilerplate_ok('lib/Net/StackExchange2/V2/Search.pm');
+  module_boilerplate_ok('lib/Net/StackExchange2/V2/Sites.pm');
+  module_boilerplate_ok('lib/Net/StackExchange2/V2/SuggestedEdits.pm');
+  module_boilerplate_ok('lib/Net/StackExchange2/V2/Tags.pm');
 
 
 }

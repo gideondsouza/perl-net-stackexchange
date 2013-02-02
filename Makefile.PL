@@ -4,11 +4,11 @@ use warnings FATAL => 'all';
 use ExtUtils::MakeMaker;
 
 WriteMakefile(
-    NAME             => 'Net::StackExchange',
+    NAME             => 'Net::StackExchange2',
     AUTHOR           => q{Gideon Israel Dsouza <gideon@cpan.org>},
-    VERSION_FROM     => 'lib/Net/StackExchange.pm',
-    ABSTRACT_FROM    => 'lib/Net/StackExchange.pm',
-    LICENSE          => 'Artistic_2_0',
+    VERSION_FROM     => 'lib/Net/StackExchange2.pm',
+    ABSTRACT_FROM    => 'lib/Net/StackExchange2.pm',
+    LICENSE          => 'freebsd',
     PL_FILES         => {},
     MIN_PERL_VERSION => 5.006,
     CONFIGURE_REQUIRES => {
@@ -18,14 +18,17 @@ WriteMakefile(
         'Test::More' => 0,
     },
     PREREQ_PM => {
-        'LWP::UserAgent'      => 6.04,
-		'JSON'  => 2.53
+        'LWP::UserAgent' => 6.04,
+		'JSON'  => 2.53,
+		'Sub::Name' => 0.05,
     },
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
-    clean => { FILES => 'Net-StackExchange-*' },
+    clean => { FILES => 'Net-StackExchange2-*' },
 	META_MERGE        => {
 	     resources => {
-	         repository  =>  'https://github.com/gideondsouza/perl-net-stackexchange/',
+			url  => 'git://github.com/gideondsouza/perl-net-stackexchange.git',
+			web  => 'https://github.com/gideondsouza/perl-net-stackexchange/',
+		    type => 'git',
 	     },
 	},
 );
