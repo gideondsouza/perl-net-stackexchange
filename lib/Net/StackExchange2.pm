@@ -5,7 +5,8 @@ use strict;
 use warnings FATAL => 'all';
 use Net::StackExchange2::V2;
 
-our $VERSION = "0.01";
+our $VERSION = "0.05";
+
 sub new {
 	my $class = shift;#unused here
 	my $params = shift;

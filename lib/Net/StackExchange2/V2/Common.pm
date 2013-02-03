@@ -12,7 +12,7 @@ our @ISA = qw(Exporter);
 our @EXPORT = qw(query no_params one_param two_params);
 
 
-our $VERSION = '0.01';
+our $VERSION = "0.05";
 
 sub query {
 	my $queryStrHash = pop @_;

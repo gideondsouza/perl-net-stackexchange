@@ -25,7 +25,7 @@ use Net::StackExchange2::V2::Filters;
 use Net::StackExchange2::V2::Inbox;
 use Net::StackExchange2::V2::Notifications;
 
-our $VERSION = '0.01';
+our $VERSION = "0.05";
 
 sub new {
 	my ($class, $params) = @_;
