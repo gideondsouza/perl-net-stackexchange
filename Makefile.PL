@@ -8,7 +8,7 @@ WriteMakefile(
     AUTHOR           => q{Gideon Israel Dsouza <gideon@cpan.org>},
     VERSION_FROM     => 'lib/Net/StackExchange2.pm',
     ABSTRACT_FROM    => 'lib/Net/StackExchange2.pm',
-    LICENSE          => 'freebsd',
+    LICENSE          => 'bsd',
     PL_FILES         => {},
     MIN_PERL_VERSION => 5.006,
     CONFIGURE_REQUIRES => {
