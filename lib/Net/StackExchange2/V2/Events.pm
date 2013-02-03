@@ -25,7 +25,7 @@ __END__
 
 =head1 NAME
 
-StackExchange Events
+Net::StackExchange2::V2::Events - Events
 
 =head1 VERSION
 

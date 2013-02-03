@@ -26,7 +26,7 @@ __END__
 
 =head1 NAME
 
-StackExchange Privileges
+Net::StackExchange2::V2::Privileges - Privileges
 
 =head1 VERSION
 

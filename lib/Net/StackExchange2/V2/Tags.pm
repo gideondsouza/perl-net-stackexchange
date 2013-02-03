@@ -65,7 +65,7 @@ __END__
 
 =head1 NAME
 
-StackExchange Tags
+Net::StackExchange2::V2::Tags - Tags
 
 =head1 VERSION
 

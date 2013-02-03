@@ -153,7 +153,7 @@ __END__
 
 =head1 NAME
 
-StackExchange Tags
+Net::StackExchange2::V2::Users - Users
 
 =head1 VERSION
 

@@ -30,7 +30,7 @@ __END__
 
 =head1 NAME
 
-StackExchange Inbox
+Net::StackExchange2::V2::Inbox - Inbox
 
 =head1 VERSION
 

@@ -28,7 +28,7 @@ __END__
 
 =head1 NAME
 
-StackExchange Errors
+Net::StackExchange2::V2::Errors - Errors
 
 =head1 VERSION
 

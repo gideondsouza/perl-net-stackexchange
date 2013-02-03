@@ -29,7 +29,7 @@ __END__
 
 =head1 NAME
 
-StackExchange Suggested-Edits
+Net::StackExchange2::V2::SuggestedEdits - Suggested-Edits
 
 =head1 VERSION
 

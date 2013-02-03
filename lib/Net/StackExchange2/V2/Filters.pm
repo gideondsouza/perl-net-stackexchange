@@ -29,7 +29,7 @@ __END__
 
 =head1 NAME
 
-StackExchange Filters
+Net::StackExchange2::V2::Filters - Filters
 
 =head1 VERSION
 

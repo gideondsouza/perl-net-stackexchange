@@ -15,7 +15,7 @@ sub new {
 
 	*sites_all = subname(
 	   "Net::StackExchange2::V2::Sites::sites_all",
-	   no_params("sites"),
+	   no_params("sites", {no_site => 1}),
 	);
     return $self;
 }
@@ -25,7 +25,7 @@ __END__
 
 =head1 NAME
 
-StackExchange Sites
+Net::StackExchange2::V2::Sites - Sites
 
 =head1 VERSION
 

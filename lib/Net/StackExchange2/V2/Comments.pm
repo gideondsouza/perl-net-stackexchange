@@ -36,7 +36,7 @@ __END__
 
 =head1 NAME
 
-StackExchange Comments
+Net::StackExchange2::V2::Comments - Comments
 
 =head1 VERSION
 

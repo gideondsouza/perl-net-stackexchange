@@ -160,7 +160,7 @@ __END__
 
 =head1 NAME
 
-Internal module used to create urls
+Net::StackExchange2::V2::Common - Internal module used to create urls
 
 =head1 VERSION
 

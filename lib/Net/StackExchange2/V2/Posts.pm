@@ -45,7 +45,7 @@ __END__
 
 =head1 NAME
 
-StackExchange Posts
+Net::StackExchange2::V2::Posts - Posts
 
 =head1 VERSION
 

@@ -26,7 +26,7 @@ __END__
 
 =head1 NAME
 
-StackExchange Applications
+Net::StackExchange2::V2::Applications - Applications
 
 =head1 VERSION
 

@@ -34,7 +34,7 @@ __END__
 
 =head1 NAME
 
-StackExchange Search
+Net::StackExchange2::V2::Search - Search
 
 =head1 VERSION
 

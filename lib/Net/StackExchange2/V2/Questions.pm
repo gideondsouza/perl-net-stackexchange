@@ -62,7 +62,7 @@ __END__
 
 =head1 NAME
 
-StackExchange Questions
+Net::StackExchange2::V2::Questions - Questions
 
 =head1 VERSION
 

@@ -47,7 +47,7 @@ __END__
 
 =head1 NAME
 
-StackExchange Badges
+Net::StackExchange2::V2::Badges - Badges
 
 =head1 VERSION
 

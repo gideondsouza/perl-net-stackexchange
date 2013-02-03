@@ -26,7 +26,7 @@ __END__
 
 =head1 NAME
 
-StackExchange Revisions
+Net::StackExchange2::V2::Revisions - Revisions
 
 =head1 VERSION
 

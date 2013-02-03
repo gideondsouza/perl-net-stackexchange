@@ -33,7 +33,7 @@ __END__
 
 =head1 NAME
 
-StackExchange Answers
+Net::StackExchange2::V2::Answers - Answers
 
 =head1 VERSION
 

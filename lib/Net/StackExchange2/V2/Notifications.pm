@@ -30,7 +30,7 @@ __END__
 
 =head1 NAME
 
-StackExchange Notifications
+Net::StackExchange2::V2::Notifications - Notifications
 
 =head1 VERSION
 

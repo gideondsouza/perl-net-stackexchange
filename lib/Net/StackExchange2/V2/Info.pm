@@ -4,14 +4,20 @@ use 5.006;
 use strict;
 use warnings FATAL => 'all';
 use Sub::Name qw(subname);
+use Data::Dumper;
 use Net::StackExchange2::V2::Common qw(query no_params one_param);
 
 our $VERSION = '0.01';
 
 sub new {
+	print "egg2";
+	print Dumper(@_);
+	
 	my ($class, $params) = @_;
     my $self = $params;
-    bless $self, $class;
+#print "class, oparams\n";
+#print Dumper($class, $params);
+   bless $self, $class;
 
 	*info = subname(
 	   "Net::StackExchange2::V2::Info::info",
@@ -24,7 +30,7 @@ __END__
 
 =head1 NAME
 
-StackExchange Info
+Net::StackExchange2::V2::Info - Info
 
 =head1 VERSION
 

@@ -4,6 +4,7 @@ package Net::StackExchange2::V2;
 use 5.006;
 use strict;
 use warnings FATAL => 'all';
+use Data::Dumper;
 use Net::StackExchange2::V2::Answers;
 use Net::StackExchange2::V2::AccessTokens;
 use Net::StackExchange2::V2::Badges;
@@ -39,88 +40,88 @@ sub new {
 }
 sub answers {
 	my $self = shift;
-	return Net::StackExchange2::V2::Answers->new($self);
+	return Net::StackExchange2::V2::Answers->new({ %$self });
 }
 sub access_tokens {
 	my $self = shift;
-	return Net::StackExchange2::V2::AccessTokens->new($self);
+	return Net::StackExchange2::V2::AccessTokens->new({ %$self });
 }
 sub badges {
 	my $self = shift;
-	return Net::StackExchange2::V2::Badges->new($self);
+	return Net::StackExchange2::V2::Badges->new({ %$self });
 }
 sub comments {
 	my $self = shift;
-	return Net::StackExchange2::V2::Comments->new($self);
+	return Net::StackExchange2::V2::Comments->new({ %$self });
 }
 sub info {
 	my $self = shift;
-	return Net::StackExchange2::V2::Info->new($self);
+	print "info...\n";
+	print Dumper($self);
+	return Net::StackExchange2::V2::Info->new({ %$self });
 }
 sub posts {
 	my $self = shift;
-	return Net::StackExchange2::V2::Posts->new($self);
+	return Net::StackExchange2::V2::Posts->new({ %$self});
 }
 sub privileges {
 	my $self = shift;
-	return Net::StackExchange2::V2::Privileges->new($self);	
+	return Net::StackExchange2::V2::Privileges->new({ %$self });	
 }
 sub questions {
 	my $self = shift;
-	return Net::StackExchange2::V2::Questions->new($self);	
+	return Net::StackExchange2::V2::Questions->new( { %$self });	
 }
 sub revisions {
 	my $self = shift;
-	return Net::StackExchange2::V2::Revisions->new($self);	
+	return Net::StackExchange2::V2::Revisions->new({ %$self });	
 }
 sub search {
 	my $self = shift;
-	return Net::StackExchange2::V2::Search->new($self);
+	return Net::StackExchange2::V2::Search->new({ %$self });
 }
 sub sites {
 	my $self = shift;
-	$self->{site} = '';#THIS IS A special case. 
-	#The sites module has only one sites_all method that SHOULD NOT has a site query str
-	return Net::StackExchange2::V2::Sites->new($self);	
+	return Net::StackExchange2::V2::Sites->new({ %$self });	
 }
 sub errors {
 	my $self = shift;
-	return Net::StackExchange2::V2::Errors->new($self);
+	return Net::StackExchange2::V2::Errors->new({ %$self });
 }
 sub suggested_edits {
 	my $self = shift;
-	return Net::StackExchange2::V2::SuggestedEdits->new($self);
+	return Net::StackExchange2::V2::SuggestedEdits->new({ %$self });
 }
 sub tags {
 	my $self = shift;
-	return Net::StackExchange2::V2::Tags->new($self);
+	return Net::StackExchange2::V2::Tags->new({ %$self });
 }
 sub users {
 	my $self = shift;
-	return Net::StackExchange2::V2::Users->new($self);
+	return Net::StackExchange2::V2::Users->new({ %$self });
 }
 sub events {
 	my $self = shift;
-	return Net::StackExchange2::V2::Events->new($self);
+	return Net::StackExchange2::V2::Events->new({ %$self });
 }
 sub filters {
 	my $self = shift;
-	return Net::StackExchange2::V2::Filters->new($self);
+	return Net::StackExchange2::V2::Filters->new({ %$self });
 }
 sub inbox {
 	my $self = shift;
-	return Net::StackExchange2::V2::Inbox->new($self);
+	return Net::StackExchange2::V2::Inbox->new({ %$self });
 }
 sub notifications {
 	my $self = shift;
-	return Net::StackExchange2::V2::Notifications->new($self);
+	return Net::StackExchange2::V2::Notifications->new({ %$self });
 }
 1; #End of StackExchange2::V2
 __END__
 
 =head1 NAME
 
-StackExchange API V2
+Net::StackExchange2::V2 - StackExchange API V2
 
 =head1 VERSION
 
@@ -143,49 +144,93 @@ Please see L<http://api.stackexchange.com/docs/> for information about the metho
 
 =head2 MODULES
 
+This distibution contains the following modules, each correspond to a entity/type in the stackexchange api. Individual methods are documented 
+inside the module itself. Ideally if you read the docs on L<Net::StackExchange2> you should be able to infer the methods inside a module from the 
+stackexchange docs.
+
+This wrapper contains the following modules, I've only included quick notes on each module here:
+
 =head3 Answer
+
+Stackoverflow answers.
 
 =head3 Badges
 
+Badges. They come in bronze, silver and gold. They support sort by rank, gold being the highest.
+
 =head3 Comments
+
+This contains two write methods to delete and edit comments. They require authentication. (access_token and key)
 
 =head3 Events
 
+Requires authentication. Gets a stream of events that happened on the site.
+
 =head3 Info
+
+Gets the site info. Reads the site parameter you passed in.
 
 =head3 Posts
 
+Stackexchange posts. By default does not include the body. Use filters for this.
+
 =head3 Privileges
+
+Contains one method to fetch all privileges on the site.
 
 =head3 Questions
 
+Also doesn't include body like posts and comments.
+
 =head3 Revisions
+
+Revisions take a guid as their id
 
 =head3 Search
 
+Has regular search, advanced search and similar search(by title) methods.
+
 =head3 Suggested-Edits
+
+Just gets suggested ids.
 
 =head3 Tags
 
+Note this doesn't have a tags([many tags]) method. The method is named tag_info(["perl", "javascript"])
+
 =head3 Users
 
-=head3 Network Methods:
+Contains MANY methods to get all sorts of information about the user
+
+=head3 Network Methods
 
 =head3 Access-Tokens
 
+Has methods to dispose and inspect access_tokens
+
 =head3 Applications
+
+Has one method to de-authenticate
 
 =head3 Errors
 
+Gets information about error ids. Useful for debugging.
+
 =head3 Filters
+
+Has methods to create and inspect filters, like the docs say, you should only use this for debugging.
 
 =head3 Inbox
 
+Methods to get the users inbox and unread items. Authentication required on both methods.
+
 =head3 Notifications
+
+Gets the users notifications across sites. This method unloads
 
 =head3 Sites
 
-=head3 Users
+Gets information about all sites on the stackexchange network.
 
 
 =head1 AUTHOR

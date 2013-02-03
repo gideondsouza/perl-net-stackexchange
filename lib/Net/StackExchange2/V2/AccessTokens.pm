@@ -30,7 +30,7 @@ __END__
 
 =head1 NAME
 
-StackExchange Access-Tokens
+Net::StackExchange2::V2::AccessTokens - Access-Tokens
 
 =head1 VERSION
 
