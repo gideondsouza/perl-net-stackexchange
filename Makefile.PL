@@ -25,6 +25,7 @@ WriteMakefile(
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean => { FILES => 'Net-StackExchange2-*' },
 	META_MERGE        => {
-	     resources => 'https://github.com/gideondsouza/perl-net-stackexchange/',
+	     resources =>  {	
+	 		repository => 'https://github.com/gideondsouza/perl-net-stackexchange/',
 	},
 );
