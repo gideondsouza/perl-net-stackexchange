@@ -26,6 +26,7 @@ WriteMakefile(
     clean => { FILES => 'Net-StackExchange2-*' },
 	META_MERGE        => {
 	     resources =>  {	
-	 		repository => 'https://github.com/gideondsouza/perl-net-stackexchange/',
-	},
+	 			repository => 'https://github.com/gideondsouza/perl-net-stackexchange/',
+			},
+	}
 );
