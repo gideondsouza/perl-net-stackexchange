@@ -21,6 +21,10 @@ sub new {
 	   "Net::StackExchange2::V2::Users::users",
 	   one_param("users"),
 	);
+	*users_answers = subname(
+	   "Net::StackExchange2::V2::Users::users_answers",
+	   one_param("users", "answers"),
+	);
 	*users_badges = subname(
 	   "Net::StackExchange2::V2::Users::users_badges",
 	   one_param("users", "badges"),
